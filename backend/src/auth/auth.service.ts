@@ -26,7 +26,7 @@ export class AuthService {
         }
 
         const existingUser = await this.usersService.findByEmail(registerDto.email);
-        if (!existingUser) {
+        if (existingUser) {
             throw new ConflictException('Email Already Exist');
         }
 
